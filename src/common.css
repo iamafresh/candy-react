@@ -1,0 +1,51 @@
+/*=============================================================
+                  布局
+===============================================================*/
+
+/* 垂直居中(不需要知道尺寸) */
+.vertical-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* 适合视窗居中 */
+.vertical-center-vh {
+	margin: 50vh auto 0;
+	transform: translateY(-50%);
+}
+
+/* flex */
+.vertical-center-flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+/*================================================================
+                    文本处理
+ =================================================================*/
+.single-ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.multi-ellipsis {
+  overflow : hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+.clearfix:after{
+   content:".";        /*加一段内容*/
+   display:block;      /*让生成的元素以块级元素显示，占满剩余空间*/
+   height:0;           /*避免生成的内容破坏原有布局高度*/
+   clear:both;         /*清除浮动*/
+   visibility:hidden;  /*让生成的内容不可见*/
+  }
+  .clearfix{zoom:1;}   /*为IE6，7的兼容性设置*/
