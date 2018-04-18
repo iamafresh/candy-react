@@ -1,4 +1,8 @@
+/* ===============================================================
+                    验证是否是以太坊地址
+================================================================= */
 // see: https://github.com/cilphex/ethereum-address/blob/cb4829371c4e0beb3f019b73c47c1ae5e85a100f/index.js
+
 import CryptoJS from './sha3'
 
 let ethAddress = '0xc94cd681477e6a70a4797a9Cbaa9F1E52366823c'

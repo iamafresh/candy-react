@@ -5,14 +5,18 @@ import {
   Form,
   Icon,
   Input,
+  Select,
   Button, 
   CheckBox,
   Row,
   Col
   } from 'antd'
 
+import '../lib/css/flag-icon/css/flag-icon.min.css'
+
 
 const FormItem = Form.Item
+const Option = Select.Option
 
 class BaseForm extends React.Component {
   componentDidMount () {
@@ -45,12 +49,15 @@ class BaseForm extends React.Component {
   }
   
   onlyNumber = value => {
-    return value.replace(/[^\d]/g, '')
+    if (!!value) {
+      return value.replace(/[^\d]/g, '')
+    }
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.form.validateFieldsAndScroll({first: true, force: false}, (err, values) => {
+    // 每一次验证所有字段，遇到第一条不合格就报错停止
+    this.props.form.validateFieldsAndScroll({first: true, force: true}, (err, values) => {
       if (!err) {
         console.log('Received values of form: ', values)
       }
@@ -63,9 +70,17 @@ class BaseForm extends React.Component {
       <Form layout='vertical' onSubmit={this.handleSubmit}>
         <FormItem>
           {getFieldDecorator('contory', {
-            rules: [{ required: true, message: '请输入你的国家名!' }]
+            rules: [{
+              required: true,
+              message: '请输入你的国家名!' }]
           })(
-            <Input prefix={<Icon type='user' style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder='Username' />
+            <Select placeholder='请选择一个国家'>
+              <Option value='cn'><span className='flag-icon flag-icon-cn flag-icon-squared'></span>&nbsp;&nbsp;中国</Option>
+              <Option value='gr'><span className='flag-icon flag-icon-gr'></span>&nbsp;&nbsp;A国家</Option>
+              <Option value='ag'><span className='flag-icon flag-icon-ag'></span>&nbsp;&nbsp;B国家</Option>
+              <Option value='as'><span className='flag-icon flag-icon-as'></span>&nbsp;&nbsp;C国家</Option>
+              <Option value='ca'><span className='flag-icon flag-icon-ca'></span>&nbsp;&nbsp;加拿大</Option>
+            </Select>
           )}
         </FormItem>
 
@@ -81,7 +96,7 @@ class BaseForm extends React.Component {
             }],
             // 只能输入数字
             normalize: this.onlyNumber,
-            initialValue: '18565115910',
+            
             trigger: 'onChange'
 
           })(
@@ -96,8 +111,7 @@ class BaseForm extends React.Component {
             },
             {
               validator: this.validateToIdcard
-            }],
-            initialValue: null
+            }]
           })(
             <Input prefix={<Icon type='user' style={{color: 'rgba(0,0,0,.25)'}} />} placeholder='身份证' />
           )}
