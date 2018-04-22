@@ -1,31 +1,30 @@
-import React, { Component } from 'react'
-import { Button } from 'antd'
+import React from 'react'
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom'
+import styled from 'styled-components'
 import 'normalize.css'
-import './App.css'
+import bg from './assrt/img/bg.gif'
+import Home from './container/Home'
+import ShowCandy from './container/ShowCandy'
+import DrawMoney from './container/DrawMoney'
+import WaitResult from './container/WaitResult'
 
-import Blockie from './components/Blockie'
-import WrapperForm from './components/BaseForm'
+const Wrapper = styled.div`
+  background: url(${bg});
+  background-size: 100%;
+`
 
-class App extends Component {
-  render () {
-    return (
-      <div className='App'>
-        <header className='App-header'>
-          <h1 className='App-title'>Welcome to React</h1>
-        </header>
-        <Blockie address='0x7cB57B5A97eAbe94205C07890BE4c1aD31E486A8' />
-        <p className='App-intro'>
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-
-        <div>
-          <Button type='primary'>Button</Button>
-          <WrapperForm />
-        </div>
-
-      </div>
-    )
-  }
-}
+const App = () => (
+  <Router>
+    <Wrapper>
+      <Route exact path='/' component={Home} />
+      <Route path='/show-candy' component={ShowCandy} />
+      <Route path='/draw-money' component={DrawMoney} />
+      <Route path='/wait-result' component={WaitResult} />
+    </Wrapper>
+  </Router>
+)
 
 export default App
