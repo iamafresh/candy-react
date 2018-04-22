@@ -1,7 +1,6 @@
 import React from 'react'
 import Wrapper from '../components/Wrapper'
 import WrapperForm from '../components/BaseForm'
-import Blockie from '../components/Blockie'
 import Header from '../components/Header'
 import MainTitle from '../components/MainTitle'
 

@@ -18,8 +18,6 @@ import BaseButton from '../components/BaseButton'
 import BoxBorder from '../components/BoxBorder'
 
 
-// const history = createBrowserHistory()
-
 const FormItem = Form.Item
 const Option = Select.Option
 
