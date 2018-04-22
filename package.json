@@ -5,11 +5,14 @@
   "dependencies": {
     "@alicloud/sms-sdk": "^1.0.9",
     "antd": "^3.4.1",
+    "axios": "^0.18.0",
     "ethereum-blockies-base64": "^1.0.1",
     "normalize.css": "^8.0.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
+    "styled-components": "^3.2.6",
     "yarn": "^1.6.0"
   },
   "scripts": {
